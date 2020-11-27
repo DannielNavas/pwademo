@@ -1,7 +1,14 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { AngularFireMessaging } from '@angular/fire/messaging';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
 
+interface Token {
+  token: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,11 +17,15 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 export class AppComponent implements OnInit {
   title = 'Demo PWA';
   installEvent = null;
+  private tokensCollections: AngularFirestoreCollection<Token>;
 
   constructor(
     private swUpdate: SwUpdate,
     private messaging: AngularFireMessaging,
-  ) { }
+    private database: AngularFirestore
+  ) {
+    this.tokensCollections = this.database.collection<Token>('tokens');
+  }
   ngOnInit(): void {
     this.updatePWA();
     this.requestPermision();
@@ -33,6 +44,7 @@ export class AppComponent implements OnInit {
   requestPermision(): void {
     this.messaging.requestToken.subscribe((token) => {
       console.log(token);
+      this.tokensCollections.add({ token });
     });
   }
   // Escucha de las notificaciones utilizando Firebase

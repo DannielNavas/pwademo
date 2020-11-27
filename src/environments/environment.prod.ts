@@ -1,13 +1,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyDkTs-8_gwtJnbWi7bg9IYsy2AI8ZJt1Ns',
-    authDomain: 'lavaderosonico.firebaseapp.com',
-    databaseURL: 'https://lavaderosonico.firebaseio.com',
-    projectId: 'lavaderosonico',
-    storageBucket: 'lavaderosonico.appspot.com',
-    messagingSenderId: '1003682945550',
-    appId: '1:1003682945550:web:7d6f0b7b744f8f19e1fa5f',
-    measurementId: 'G-6E5656E349'
+    apiKey: 'AIzaSyDG4OY5kxBg145wGx6qCshcd_mIz5Pup1c',
+    authDomain: 'demopwa-effbe.firebaseapp.com',
+    databaseURL: 'https://demopwa-effbe.firebaseio.com',
+    projectId: 'demopwa-effbe',
+    storageBucket: 'demopwa-effbe.appspot.com',
+    messagingSenderId: '551562652162',
+    appId: '1:551562652162:web:81a95138e4bc4e850d151b',
+    measurementId: 'G-20K0D111LD',
   },
 };
